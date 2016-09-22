@@ -21,5 +21,6 @@ Provide single puppet module which can setup both puppet master and puppet agent
  1. You have at least 2 VMs and can demostrate them, one is a puppet master and one is agent
  2. Your manifest can be applied locally on clear box and if you need predefines please ad them in documentation.
  3. Your code is available for review as pull request to this repository
+ 4. Vagrant file should be available in this repo
  
 ###Dead Line 26.09.2016 8AM MSQ time zone
