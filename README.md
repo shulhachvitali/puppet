@@ -2,11 +2,11 @@
 
 1. Installation begins from setup epel repository to clear CENTOS/7 image
 
-2. Update all with yum, install puppet v. 3.6
+2. "Update all" with yum, install puppet v. 3.6 from epel
 
 3. Vagrant starts pappet provision using internal modules (start of default.pp, wich include init.pp for main scenario)
 
-4. Pappet define by hostname the scenario it should run and start configuration.
+4. Pappet define the scenario it should run and start configuration by hostname.
 
 5. Custom resources in my case: 
 facter vars for puppet-master and agent packet version, and autosign.conf file for singing all clients from the same domain with server.
