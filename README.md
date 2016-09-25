@@ -1,8 +1,23 @@
+##Final task short info:
+
+1. Installation begins from setup epel repository to clear CENTOS/7 image
+
+2. Update all with yum, install puppet v. 3.6
+
+3. Vagrant starts pappet provision using internal modules (start of default.pp, wich include init.pp for main scenario)
+
+4. Pappet define by hostname the scenario it should run and start configuration.
+
+5. Custom resources in my case: 
+facter vars for puppet-master and agent packet version, and autosign.conf file for singing all clients from the same domain with server.
+ 
+ **File puppet.rb - is vagrant configuration file, wich was changed on 203 line for working with new version of puppet.
+
 # This is repo for final task 
 ## Final task
 Provide single puppet module which can setup both puppet master and puppet agent current version from repositories which provided by puppetlabs for example - you delivery plan can be following:
   1. provision clear box with CentOS 7
-  2. setup available puppet from CentOS repo
+  2. setup available puppet from CentOS repo 
   3. Deliver all needed puppet code
   4. Apply your manifest with `puppet apply`
   

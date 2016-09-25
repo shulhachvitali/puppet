@@ -43,19 +43,6 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class myserver {
-  if $hostname == 'server' {include 'myserver::master'}
+  if $::hostname == 'server' {include 'myserver::master'}
   else {include 'myserver::agent'}
 }
-
-
-
-#package { 'puppetserver': 
-#             name => 'puppetserver',
-#             ensure => 'latest',
-#                            }
-# service { 'puppetserver':
-#             ensure => 'running',
-#             enable => 'true',
-#             require => Package['puppetserver'],
-#               }
-#}
