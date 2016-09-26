@@ -7,15 +7,16 @@ class myserver::agent {
     gpgcheck => '1',
     gpgkey   => 'https://yum.puppetlabs.com/RPM-GPG-KEY-puppet https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs'
   }
-package { 'puppet-agent': 
-             name   => 'puppet-agent',
-             ensure => $::client_ver,
-        }
- service { 'puppet':
-             ensure  => 'running',
-             enable  => 'true',
-             require => Package['puppet-agent'],
-          }
+  package { 'puppet-agent': 
+    name     => 'puppet-agent',
+    ensure   => $::client_ver,
+    require  => yumrepo ['puppetlabs-pc1']  
+  }
+  service { 'puppet':
+    ensure  => 'running',
+    enable  => true,
+    require => Package['puppet-agent'],
+  }
 
 }
 # https://yum.puppetlabs.com/el/7/PC1/x86_64/puppet-agent-1.6.2-1.el7.x86_64.rpm
