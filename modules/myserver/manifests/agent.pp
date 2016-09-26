@@ -10,7 +10,7 @@ class myserver::agent {
   package { 'puppet-agent': 
     name     => 'puppet-agent',
     ensure   => $::client_ver,
-    require  => yumrepo ['puppetlabs-pc1']  
+    require  => yumrepo['puppetlabs-pc1'],
   }
   service { 'puppet':
     ensure  => 'running',
