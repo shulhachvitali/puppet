@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+config.vm.define "puppet1" do |puppet1|
+    puppet1.vm.box = "centos/7"
+    puppet1.vm.hostname = "puppet1.server.com"
+    puppet1.vm.network "private_network", ip: "192.168.33.170"
+    puppet1.vm.provider "virtualbox" do |cfg|
+      cfg.name = "puppet1-cfg"
+      cfg.cpus = 1
+      cfg.memory = 3128
+   end
+    puppet1.vm.provision "shell", path: "puppet1.sh" 
+  end
+config.vm.define "puppet2" do |puppet2|
+    puppet2.vm.box = "centos/7"
+    puppet2.vm.hostname = "pupserver.server.com"
+    puppet2.vm.network "private_network", ip: "192.168.33.175"
+    puppet2.vm.provider "virtualbox" do |cfg|
+      cfg.name = "puppet2-cfg"
+      cfg.cpus = 1
+      cfg.memory = 3128
+   end
+    puppet2.vm.provision "shell", path: "puppet2.sh" 
+  end
+end
+
+
+
+

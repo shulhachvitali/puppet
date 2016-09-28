@@ -1,0 +1,23 @@
+# repo installation:
+1.rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+# ON SERVER:
+yum install puppetserver
+systemctl start puppetserver
+systemctl enable puppetserver
+# (request certificate on node)
+puppet cert list
+puppet cert --sign puppet1.server.com
+# manifest:
+puppet module install puppetlabs-ntp
+cd /etc/puppetlabs/code/environments/production/manifests
+vi site.pp
+"node 'puppet1.server.com' {
+      include '::ntp'
+}"
+
+# On node:
+rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+yum install puppet -y
+puppet resource service puppet ensure=running enable=true
+puppet agent --server pupserver.server.com --waitforcert 60 --test
+puppet agent --server pupserver.server.com --test>node.log
